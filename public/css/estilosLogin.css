@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sarpanch:wght@900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(../images/fondoLogin2.png);
+    background-size: cover;
+    background-position: center;
+    font-family: Nunito, sans-serif;
+}
+
+.imglogo {
+    height: 90px;
+    width: 90px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Sarpanch', sans-serif;
+    font-size: 3rem;
+    font-style: italic;
+}
+
+
+/* .derecho {
+    padding-top: 200px;
+} */
+
+form input[type="text"],
+form input[type="password"] {
+    width: 75%;
+    border: none;
+    border-radius: 5px;
+    height: 2rem;
+    opacity: 0.5;
+    padding-left: 50px;
+    outline: none;
+}
+
+.inputWithIcon {
+    position: relative;
+}
+
+.inputWithIcon i {
+    position: absolute;
+    left: 18%;
+    top: 16px;
+    color: #b93665;
+}
+
+form input[type="submit"] {
+    background: linear-gradient(to right, #c33764, #1d2671);
+    width: 50%;
+    border: none;
+    border-radius: 20px;
+    height: 2rem;
+    outline: none;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+form a {
+    width: 100%;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #1d2671;
+}
+
+form a:hover {
+    color: #c33764;
+}
