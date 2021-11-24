@@ -1,0 +1,19 @@
+<%- include ('./templates/head1') %>
+
+    <!-- aqui css de esta pagina -->
+    
+</head>
+
+<body>
+    <!-- navbar -->
+    <%- include ('./templates/navbar') %>
+    <!-- titulo clientes -->
+    <form action="/clientes" method="post" class="container">
+        <input type="text" placeholder="Agregar nombre del cliente" class="form-control my-2" name="nombre">
+        <input type="text" placeholder="Agregar apellido del cliente" class="form-control my-2" name="apellido">
+        <input type="text" placeholder="Agregar celular del cliente" class="form-control my-2" name="cel">
+        <button class="btn btn-success btn-block" type="submit">Agregar cliente</button>
+    </form>
+
+    <!-- footer -->
+    <%- include ('./templates/footer') %>
