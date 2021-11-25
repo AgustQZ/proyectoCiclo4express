@@ -10,8 +10,8 @@
     para importar el proyecto solo necesitas instalar express y listo
     nota2:
     ir a package.json y crear los scripts "start": "node app" y "dev": "nodemon app"
-    npm i mongoose
-    npm i body-parser
+    npm i mongoose es el driver para realizar la conexion a mongodb
+    npm i body-parser sirve para transportar los datos de los inputs
 */
 
 // crear servidor con express
@@ -22,7 +22,6 @@ const port = 3444;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
- 
 // parse application/json
 app.use(bodyParser.json())
 
@@ -56,5 +55,5 @@ app.use('/clientes',require('./router/clientes'));
 
 // llamar a error 404 ejs
 app.use((req, res, next) => {
-    res.status(404).render('404',{titulo: 'error 404'});
+    res.status(404).render('404');
 });
