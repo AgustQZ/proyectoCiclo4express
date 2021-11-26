@@ -32,7 +32,7 @@ app.listen(port, () => {
 
 //Crear la conexion a la base de datos mongodb usando mongoose (npm i mongoose para instalar)
 const mongoose = require('mongoose');
-const uri = `mongodb://localhost:27017/TiendaGenerica3`;
+const uri = `mongodb://localhost:27017/tienda`;
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Conexion a mongodb establecida'))
     .catch(e => console.log('Error de conexion', e));
