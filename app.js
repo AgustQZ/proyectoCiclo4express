@@ -10,31 +10,51 @@
     para importar el proyecto solo necesitas instalar express y listo
     nota2:
     ir a package.json y crear los scripts "start": "node app" y "dev": "nodemon app"
+    npm i mongoose es el driver para realizar la conexion a mongodb
+    npm i body-parser sirve para transportar los datos de los inputs
 */
 
 // crear servidor con express
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const port = 3444;
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+
 //escuchar el servidor
 app.listen(port, () => {
     console.log(`Escuchando por el localhost:${port}`);
 });
+
+//Crear la conexion a la base de datos mongodb usando mongoose (npm i mongoose para instalar)
+const mongoose = require('mongoose');
+const usuario = '';
+const password = '';
+const dbName = 'tienda';
+const uri = `mongodb://localhost:27017/tienda`;
+mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology: true})
+.then(()=>console.log('Conexion a mongodb establecida'))
+.catch(e=> console.log('Error de conexion',e));
+
 //llamar paginas estaticas
 app.use(express.static(__dirname + '/public'));
 // llamar la carpeta donde va a iniciar el proyecto
 app.set('views', __dirname + '/views');
 // crear el motor de plantillas
 app.set('view engine', 'ejs');
-/*llamar el modulo rutas
-app.use(require('./routes/rutas')); --me sale error--*/
-// RUTAS
-app.get('/', (req, res) => {
-    res.render('index', {titulo:'Login'});
-});
-app.get('/sucursales', (req, res) => {
-    res.render('sucursales', {titulo:'Sucursales'});
-});
+
+//      RUTAS
+//modulo rutas
+app.use('/',require('./router/rutas'));
+//modulo archivo de datos clientes
+app.use('/clientes',require('./router/clientes'));
+
+//modulo archivo de datos productos
+app.use('/productos',require('./router/productos'));
 
 // llamar a error 404 ejs
 app.use((req, res, next) => {
