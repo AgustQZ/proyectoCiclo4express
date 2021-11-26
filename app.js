@@ -22,7 +22,7 @@ const port = 3444;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
-// parse application/json
+    // parse application/json
 app.use(bodyParser.json())
 
 //escuchar el servidor
@@ -32,13 +32,10 @@ app.listen(port, () => {
 
 //Crear la conexion a la base de datos mongodb usando mongoose (npm i mongoose para instalar)
 const mongoose = require('mongoose');
-const usuario = '';
-const password = '';
-const dbName = 'tienda';
 const uri = `mongodb://localhost:27017/tienda`;
-mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology: true})
-.then(()=>console.log('Conexion a mongodb establecida'))
-.catch(e=> console.log('Error de conexion',e));
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Conexion a mongodb establecida'))
+    .catch(e => console.log('Error de conexion', e));
 
 //llamar paginas estaticas
 app.use(express.static(__dirname + '/public'));
@@ -49,9 +46,9 @@ app.set('view engine', 'ejs');
 
 //      RUTAS
 //modulo rutas
-app.use('/',require('./router/rutas'));
+app.use('/', require('./router/rutas'));
 //modulo archivo de datos clientes
-app.use('/clientes',require('./router/clientes'));
+app.use('/clientes', require('./router/clientes'));
 
 //modulo archivo de datos productos
 app.use('/productos',require('./router/productos'));
