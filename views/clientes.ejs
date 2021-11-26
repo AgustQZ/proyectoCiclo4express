@@ -1,47 +1,59 @@
 <%- include ('./templates/head1', {titulo: 'Clientes'}); %>
 
     <!-- css esta pagina -->
-    
-</head>
+    <link rel="stylesheet" href="css/cliente.css">
+    </head>
 
-<body>
-    <!-- navbar -->
-    <%- include ('./templates/navbar') %>
-    <!-- titulo clientes -->
-    Clientes de prueba
+    <body>
+        <!-- navbar -->
+        <%- include ('./templates/navbar') %>
+            <h3>Listado de clientes</h3>
+            <div class="container">
+                <div>
+                    <a class="btn btn-dark btn-block my-4" href="/clientes/Crear">
+                        <i class="fas fa-user-plus"></i> Crear Cliente</a>
+                </div>
+                <div class="table-responsive-sm">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">#Id</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Celular</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (arrayClientes.length> 0) { %>
+                                <% arrayClientes.forEach(cliente=> { %>
+                                    <tr>
+                                        <td scope="row">
+                                            <%= cliente.id %>
+                                        </td>
+                                        <td>
+                                            <%= cliente.nombre %>
+                                        </td>
+                                        <td>
+                                            <%= cliente.apellidos%>
+                                        </td>
+                                        <td>
+                                            <%= cliente.cel %>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-outline-primary btn-block my-4" href="">Editar</a>
+                                            <a class="btn btn-outline-danger btn-block my-4" href="">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                        <% } %>
 
-<!-- no me funciona el if -->
-
-<div class="container">
-  <a class="btn btn-success btn-block my-4" href="/clientes/Crear">Crear Cliente</a>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#Id</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Apellido</th>
-        <th scope="col">Celular</th>
-        <th scope="col">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% if (arrayClientes.length> 0) { %>
-        <% arrayClientes.forEach(cliente=> { %>
-          <tr>
-            <th scope="row"><%= cliente.id %> </th>
-            <td><%= cliente.nombre %></td>
-            <td><%= cliente.apellido%></td>
-            <td><%= cliente.cel %></td>
-            <td>Boton</td>
-          </tr>
-            <% }) %>
-                <% } %>
-      
-    </tbody>
-  </table>
-</div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
 
 
-    <!-- footer -->
-    <%- include ('./templates/footer') %>
+            <!-- footer -->
+            <%- include ('./templates/footer') %>

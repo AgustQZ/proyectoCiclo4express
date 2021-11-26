@@ -2,12 +2,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const clienteSchema = new Schema({
-  nombre: String,
-  apellidos: String,
-  cel: Number  
+    nombre: String,
+    apellidos: String,
+    cel: Number
 });
 
 //creacion del modelo
-const Cliente = mongoose.model('Cliente',clienteSchema);
+const Cliente = mongoose.model('db_clientes', clienteSchema);
 
 module.exports = Cliente;
