@@ -58,4 +58,13 @@ router.get('/:id', async(req, res) => {
     }
 })
 
+router.get('/delete/:id', (req, res) => {
+    let id = req.params.id;
+    Cliente.remove({ _id: id }, (err, arrayClientes) => {
+        if (err) throw err;
+        res.redirect('/clientes');
+    });
+});
+
+
 module.exports = router;
