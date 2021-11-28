@@ -1,0 +1,43 @@
+<%- include ('./templates/head1', {titulo:'Editar Cliente'}) %>
+
+    <!-- aqui css de esta pagina -->
+    <link rel="stylesheet" href="/css/cliente.css">
+    </head>
+
+    <body>
+        <!-- navbar -->
+        <%- include ('./templates/navbar') %>
+            <!-- titulo clientes -->
+            <h3>Editar cliente</h3>
+            <div class="py-3 col-12 col-lg-6 justify-content-center align-items-center bg-opacity-50 get-in-touch">
+                <form action="/clientes/update/<%= cliente.id %>?_method=PUT" method="post" class="contact-form row">
+                    <input type="hidden" name="_method" value="PUT">
+                    <div class="form-field col-lg-6">
+                        <label class="label" for="cedula">Cédula:</label>
+                        <input type="number" placeholder="Cédula" value="<%= cliente.cedula %>" class="form-control my-2 input-text js-input" name="cedula">
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <label class="label" for="nombre">Nombre completo:</label>
+                        <input type="text" placeholder="Nombre" value="<%= cliente.nombre %>" class="form-control my-2 input-text js-input" name="nombre">
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <label class="label" for="direccion">Dirección:</label>
+                        <input type="text" placeholder="Dirección" value="<%= cliente.direccion %>" class="form-control my-2 input-text js-input" name="direccion">
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <label class="label" for="telefono">Teléfono:</label>
+                        <input type="tel" placeholder="Teléfono" value="<%= cliente.telefono %>" class="form-control my-2 input-text js-input" name="telefono">
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <label class="label" for="correoElectronico">Correo electrónico:</label>
+                        <input type="email" placeholder="Correo electrónico" value="<%= cliente.correoElectronico %>" class="form-control my-2 input-text js-input" name="correoElectronico">
+                    </div>
+                    <div class="botones">
+                        <button class="btn ancho btn-color btn-block my-4" type="submit">Editar</button>
+                        <button class="btn ancho btn-color btn-block my-4" type="submit" onClick="history.go(-1); return false;">Volver</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- footer -->
+            <%- include ('./templates/footer') %>

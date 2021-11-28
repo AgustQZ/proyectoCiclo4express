@@ -130,7 +130,7 @@ form input {
     height: 36px;
     border-width: 0 0 2px 0;
     border-color: #c33764;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 26px;
     font-weight: 400;
 }
@@ -180,4 +180,8 @@ form input {
     margin-right: 0%;
     padding-right: calc(var(--bs-gutter-x) * 1.5);
     padding-left: calc(var(--bs-gutter-x) * 1.5);
+}
+
+.btn-editar {
+    margin-right: 3%;
 }

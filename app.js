@@ -19,6 +19,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3444;
+const methodOverride = require('method-override');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -54,3 +55,4 @@ app.use('/clientes', require('./router/clientes'));
 app.use((req, res, next) => {
     res.status(404).render('404');
 });
+app.use(methodOverride('_method'));

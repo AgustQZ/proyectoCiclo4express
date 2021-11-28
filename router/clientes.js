@@ -16,6 +16,11 @@ router.get('/', async(req, res) => {
     }
 })
 
+//Editar cliente
+router.get('/editar', (req, res) => {
+    res.render('editarCliente');
+})
+
 //crear un ingreso a clientes
 router.get('/crear', (req, res) => {
     res.render('crear');
@@ -29,11 +34,7 @@ router.post('/', async(req, res) => {
         //primer metodo para enviar datos a la bd
         const clienteDB = new Cliente(body)
         await clienteDB.save()
-
-        //segund metodo para enviar dtos a la bd
-        //await Cliente.create(body)
-
-        //redireccionar luego de enviar los datos
+            //redireccionar luego de enviar los datos
         res.redirect('clientes')
     } catch (error) {
         console.log('error', error)
@@ -47,15 +48,37 @@ router.get('/:id', async(req, res) => {
             _id: id
         })
         console.log(clienteDB)
-        res.render('detalle', {
+        res.render('editarCliente', {
             cliente: clienteDB,
             error: false
         })
+        clienteDB.save()
     } catch (error) {
-        res.render('detalle', {
+        res.render('editarCliente', {
             error: true
         })
     }
+})
+
+// router.put('/update/:id', function(req, res) {
+//     const body = req.body
+//     let id = req.params.id;
+//     Cliente.findByIdAndUpdate({ _id: id }, body, function(err, data) {
+//         console.log(body, 'body');
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             res.send(data);
+//             console.log("Data updated!");
+//             console.log(data, 'data');
+//         }
+//     });
+// });
+
+router.put('/update/:id', async(req, res) => {
+    const { title, descripcion } = req.body;
+    await Cliente.findByIdAndUpdate(req.params.id, { title, descripcion });
+    res.redirect('/');
 })
 
 router.get('/delete/:id', (req, res) => {
