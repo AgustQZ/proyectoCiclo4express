@@ -93,10 +93,5 @@ app.use('/clientes', require('./router/clientes'));
 // llamar a error 404 ejs
 app.use((req, res, next) => {
     res.status(404).render('404');
-}); <<
-<< << < HEAD
-app.use(methodOverride('_method')); ===
-=== =
-
->>>
->>> > 0667 b280be7ba3865b1e24058a3938e87587f731
+});
+app.use(methodOverride('_method'));

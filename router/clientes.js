@@ -60,25 +60,24 @@ router.get('/:id', async(req, res) => {
     }
 })
 
-// router.put('/update/:id', function(req, res) {
-//     const body = req.body
-//     let id = req.params.id;
-//     Cliente.findByIdAndUpdate({ _id: id }, body, function(err, data) {
-//         console.log(body, 'body');
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             res.send(data);
-//             console.log("Data updated!");
-//             console.log(data, 'data');
-//         }
-//     });
-// });
-
-router.put('/update/:id', async(req, res) => {
-    const { title, descripcion } = req.body;
-    await Cliente.findByIdAndUpdate(req.params.id, { title, descripcion });
-    res.redirect('/');
+router.put('/:id', async(req, res) => {
+    const id = req.params.id
+    const body = req.body
+    try {
+        const clienteDB = await Cliente.findByIdAndUpdate(
+            id, body, { useFindAndModify: false })
+        console.log(clienteDB)
+        res.json({
+            estado: true,
+            mensaje: 'Cliente Editado'
+        })
+    } catch (error) {
+        res.json({
+            estado: false,
+            mensaje: 'Fallo al Editar'
+        })
+        console.log(error)
+    }
 })
 
 router.get('/delete/:id', (req, res) => {
