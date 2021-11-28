@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/***** Variables ************/
+
+html {
+    --color1: #c33764;
+    --color2: #702f6b;
+    --color3: #1d2671;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+}

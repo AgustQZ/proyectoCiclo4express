@@ -16,6 +16,11 @@ router.get('/', async(req, res) => {
     }
 })
 
+//Editar cliente
+router.get('/editar', (req, res) => {
+    res.render('editarCliente');
+})
+
 //crear un ingreso a clientes
 router.get('/crear', (req, res) => {
     res.render('crear');
@@ -29,11 +34,7 @@ router.post('/', async(req, res) => {
         //primer metodo para enviar datos a la bd
         const clienteDB = new Cliente(body)
         await clienteDB.save()
-
-        //segund metodo para enviar dtos a la bd
-        //await Cliente.create(body)
-
-        //redireccionar luego de enviar los datos
+            //redireccionar luego de enviar los datos
         res.redirect('clientes')
     } catch (error) {
         console.log('error', error)
@@ -47,14 +48,35 @@ router.get('/:id', async(req, res) => {
             _id: id
         })
         console.log(clienteDB)
-        res.render('detalle', {
+        res.render('editarCliente', {
             cliente: clienteDB,
             error: false
         })
+        clienteDB.save()
     } catch (error) {
-        res.render('detalle', {
+        res.render('editarCliente', {
             error: true
         })
+    }
+})
+
+router.put('/:id', async(req, res) => {
+    const id = req.params.id
+    const body = req.body
+    try {
+        const clienteDB = await Cliente.findByIdAndUpdate(
+            id, body, { useFindAndModify: false })
+        console.log(clienteDB)
+        res.json({
+            estado: true,
+            mensaje: 'Cliente Editado'
+        })
+    } catch (error) {
+        res.json({
+            estado: false,
+            mensaje: 'Fallo al Editar'
+        })
+        console.log(error)
     }
 })
 

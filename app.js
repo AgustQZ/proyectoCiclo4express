@@ -31,7 +31,7 @@ const { Passport } = require('passport');
 
 
 //para leer los datos enviados del formulario
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 //usar paquetes para que express pueda usar sesiones
 app.use(cookieParser('mi mas grande secreto'));
 app.use(session({
@@ -42,21 +42,21 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 //instancia del objeto strategy para enviar el resultado del proceso de autenticacion
-passport.use(new passportLocal(function (username, password, done){
-    if(username === "admininicial" && password === "admin123456")
+passport.use(new passportLocal(function(username, password, done) {
+    if (username === "admininicial" && password === "admin123456")
     //crear el objeto de no haber errores
-    return done (null, {id: 1, name: "Agus"});
+        return done(null, { id: 1, name: "Agus" });
 
     done(null, false);
 }));
 //serializar el usuario para guardarlo
-passport.serializeUser(function(user, done){
+passport.serializeUser(function(user, done) {
     done(null, user.id);
 });
 //deserializar el usuario guardado
-passport.deserializeUser(function(id,done){
+passport.deserializeUser(function(id, done) {
     //retornar el objeto
-    done(null, {id: 1, name: "Agus"})
+    done(null, { id: 1, name: "Agus" })
 })
 
 // parse application/x-www-form-urlencoded
@@ -96,4 +96,3 @@ app.use('/productos',require('./router/productos'));
 app.use((req, res, next) => {
     res.status(404).render('404');
 });
-
