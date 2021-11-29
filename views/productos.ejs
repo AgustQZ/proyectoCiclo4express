@@ -1,0 +1,56 @@
+<%- include ('./templates/head1', {titulo: 'productos'}); %>
+
+    <!-- css esta pagina -->
+    
+</head>
+
+<body>
+    <!-- navbar -->
+    <%- include ('./templates/navbar') %>
+    <!-- titulo productos -->
+    Productos
+
+<div class="container">
+  <a class="btn btn-success btn-block my-4" href="/productos/Crear">Crear productos</a>
+  <div style="padding-left: 5px;">
+
+    <div class="container">
+
+        <div id="error" class="alert alert-danger visually-hidden"
+            role="alert">Archivo vacio, extensión no válida o datos
+            corruptos (El separador debe ser coma ",")</div>
+
+        <div id="correcto" class="alert alert-success visually-hidden"
+            role="alert">Productos importados desde CSV con éxito</div>
+
+        <form id="form1">
+            <div>
+                <label for="formFileLg" class="form-label">Seleccione el
+                    archivo CSV con el inventario de productos</label> <input
+                    class="form-control form-control-lg" id="archivo" type="file"
+                    accept=".csv"> <br> <br>
+                <button type="button" class="btn btn-success"
+                    onclick="subirArchivo()">Subir archivo</button>
+            </div>
+            <br> <br>
+        </form>
+
+        <div class="container">
+            <div class="row">
+
+                <button type="button" class="btn btn-success"
+                    onclick="load_productos()">
+                    <i class="fas fa-search "></i> Listar todos los Productos                
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col align-self-center" id="productosinfo"></div>
+        </div>
+</div>
+
+
+
+    <!-- footer -->
+    <%- include ('./templates/footer') %>
