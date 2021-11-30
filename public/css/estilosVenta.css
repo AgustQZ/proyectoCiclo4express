@@ -17,17 +17,26 @@ body{
     font-family: 'Nunito', sans-serif;
 }
 
-form input {
-    width: 100%;
-    border-width: thin;
-    border-radius: 7px;
-    height: 2rem;
-    opacity: 0.5;
-    padding-left: 10px;
-    outline: none;
-    margin-bottom: 0.4rem;
+form{
+    max-width: 800px;
+}
+form label{
+    color: var(--color3);
 }
 
-form label{
-    display: block;
+form input{
+    border-color: #E7AFC1;
+    border-width: thin;
+    height: 2rem;
+
+}
+
+form input[type="submit"] {
+    background: linear-gradient(to right, #c33764, #1d2671);
+    border: none;
+    border-radius: 20px;
+    height: 2rem;
+    outline: none;
+    color: #fff;
+    font-size: 1.2rem;
 }
