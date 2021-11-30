@@ -3,6 +3,7 @@ const router = express.Router();
 
 // solicitar el cliente en el modelo
 const Cliente = require('../models/cliente');
+
 // llamar al router por medio de mongoose
 router.get('/', async(req, res) => {
     try {
@@ -40,7 +41,7 @@ router.post('/', async(req, res) => {
         console.log('error', error)
     }
 })
-
+// buscar por id
 router.get('/:id', async(req, res) => {
     const id = req.params.id
     try {
@@ -59,7 +60,7 @@ router.get('/:id', async(req, res) => {
         })
     }
 })
-
+// editar
 router.put('/:id', async(req, res) => {
     const id = req.params.id
     const body = req.body
@@ -79,7 +80,7 @@ router.put('/:id', async(req, res) => {
         console.log(error)
     }
 })
-
+// eliminar
 router.get('/delete/:id', (req, res) => {
     let id = req.params.id;
     Cliente.remove({ _id: id }, (err, arrayClientes) => {

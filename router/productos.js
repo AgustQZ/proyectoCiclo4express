@@ -3,6 +3,7 @@ const router = express.Router();
 
 // solicitar el producto en el modelo
 const Producto = require('../models/producto');
+
 // llamar al router por medio de mongoose
 router.get('/', async(req, res)=> {
     try {

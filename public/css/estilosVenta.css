@@ -1,0 +1,33 @@
+/***** Resetear valores ************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/***** Variables de colores ************/
+html {
+    --color1: #c33764;
+    --color2: #702f6b;
+    --color3: #1d2671;
+}
+
+body{
+    font-family: 'Nunito', sans-serif;
+}
+
+form input {
+    width: 100%;
+    border-width: thin;
+    border-radius: 7px;
+    height: 2rem;
+    opacity: 0.5;
+    padding-left: 10px;
+    outline: none;
+    margin-bottom: 0.4rem;
+}
+
+form label{
+    display: block;
+}
