@@ -1,4 +1,4 @@
-<%- include ('./templates/head1', {titulo: 'Clientes'}); %>
+<%- include ('./templates/head1', {titulo: 'Clientes' }); %>
 
     <!-- css esta pagina -->
     <link rel="stylesheet" href="css/cliente.css">
@@ -10,39 +10,45 @@
             <h3>Listado de clientes</h3>
             <div class="container">
                 <div>
-                    <a class="btn btn-dark btn-block my-4" href="/clientes/Crear">
-                        <i class="fas fa-user-plus"></i> Crear Cliente</a>
+                    <a class="btn btn-color btn-block my-4" href="/clientes/crear">
+                        Crear Cliente</a>
                 </div>
                 <div class="table-responsive-sm">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">#Id</th>
+
+                                <th scope="col">Cédula</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Apellido</th>
-                                <th scope="col">Celular</th>
+                                <th scope="col">Dirección</th>
+                                <th scope="col">Teléfono</th>
+                                <th scope="col">Correo electrónico</th>
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <% if (arrayClientes.length> 0) { %>
                                 <% arrayClientes.forEach(cliente=> { %>
+
                                     <tr>
-                                        <td scope="row">
-                                            <%= cliente.id %>
+                                        <td>
+                                            <%= cliente.cedula %>
                                         </td>
                                         <td>
                                             <%= cliente.nombre %>
                                         </td>
                                         <td>
-                                            <%= cliente.apellidos%>
+                                            <%= cliente.direccion%>
                                         </td>
                                         <td>
-                                            <%= cliente.cel %>
+                                            <%= cliente.telefono %>
                                         </td>
                                         <td>
-                                            <a class="btn btn-outline-primary btn-block my-4" href="">Editar</a>
-                                            <a class="btn btn-outline-danger btn-block my-4" href="">Eliminar</a>
+                                            <%= cliente.correoElectronico %>
+                                        </td>
+                                        <td class="d-flex">
+                                            <a class="btn btn-editar btn-outline-primary btn-block my-4" href="/clientes/<%= cliente.id%>">Editar</a>
+                                            <a class="btn btn-outline-danger btn-block my-4" href="/clientes/delete/<%= cliente.id%>">Eliminar</a>
                                         </td>
                                     </tr>
                                     <% }) %>
