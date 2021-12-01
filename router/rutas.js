@@ -4,7 +4,7 @@ const router = express.Router();
 
 //ruta index
 router.get('/', (req, res, next) => {
-    if(req.isAuthenticated()) return next();
+    if (req.isAuthenticated()) return next();
     res.redirect("/index");
 }, (req, res) => {
     res.render('sucursales');
@@ -20,8 +20,13 @@ router.get('/menu', (req, res) => {
     res.render('menu');
 });
 
+//ruta reporte
+router.get('/reportes', (req, res) => {
+    res.render('reportes');
+});
+
 // nueva vista para recibir credenciales e iniciar sesion--middleware
-router.post("/index", passport.authenticate('local',{
+router.post("/index", passport.authenticate('local', {
     successRedirect: "/",
     failureRedirect: "/index"
 }));
