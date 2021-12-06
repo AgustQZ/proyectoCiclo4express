@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+/***** Variables de colores ************/
+
+html {
+    --color1: #c33764;
+    --color2: #702f6b;
+    --color3: #1d2671;
+}
+
 body {
     background: url(../images/fondoLogin2.png);
     background-size: cover;

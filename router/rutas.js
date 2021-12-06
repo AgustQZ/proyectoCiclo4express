@@ -16,8 +16,8 @@ router.get('/index', (req, res) => {
 });
 
 //ruta menu
-router.get('/menu', (req, res) => {
-    res.render('menu');
+router.get('/sucursales', (req, res) => {
+    res.render('sucursales');
 });
 
 //ruta reporte
