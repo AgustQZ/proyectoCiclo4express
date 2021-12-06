@@ -20,6 +20,7 @@ body{
 form{
     max-width: 800px;
 }
+
 form label{
     color: var(--color3);
 }
@@ -31,7 +32,7 @@ form input{
     height: 36px;
     border-width: 0 0 2px 0;
     border-radius: 5px;
-    border-color: var(--color1);
+    border-color: #E7AFC1;
     font-weight: 400;
     font-size: 15px;
     line-height: 26px;

@@ -1,56 +1,67 @@
-<%- include ('./templates/head1', {titulo: 'Productos'}); %>
+<%- include ('./templates/head1', {titulo: 'Productos' }); %>
 
     <!-- css esta pagina -->
-    
-</head>
+    <link rel="stylesheet" href="css/estilosProducto.css">
+    </head>
 
-<body>
-    <!-- navbar -->
-    <%- include ('./templates/navbar') %>
-    <!-- titulo productos -->
-    Productos
+    <body>
+        <!-- navbar -->
+        <%- include ('./templates/navbar') %>
 
-<div class="container">
-  <a class="btn btn-success btn-block my-4" href="/productos/Crear">Crear productos</a>
-  <div style="padding-left: 5px;">
+            <div class="container mt-5">
+                <h2 class="text-center mb-4">Seleccione el archivo CSV con los productos</h2>
 
-    <div class="container">
+                <div class="containerA p-4 mx-auto mb-5">
+                    <div class="d-flex justify-content-center mb-3">
+                        <img src="/images/upload.svg" width="60px">
+                    </div>
+                    <form class="mx-auto d-flex justify-content-between">
+                        <input type="file" name="Productos" id="btn-buscar" class="btn-buscar">
+                        <label for="btn-buscar">Buscar archivo</label>
+                        <input type="submit" value="Procesar">
+                    </form>
+                </div>
 
-        <div id="error" class="alert alert-danger visually-hidden"
-            role="alert">Archivo vacio, extensión no válida o datos
-            corruptos (El separador debe ser coma ",")</div>
+                <!-- tabla -->
+                <div class="table-responsive-sm">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Código</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Precio Compra</th>
+                                <th scope="col">Iva</th>
+                                <th scope="col">Precio Venta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
 
-        <div id="correcto" class="alert alert-success visually-hidden"
-            role="alert">Productos importados desde CSV con éxito</div>
-
-        <form id="form1">
-            <div>
-                <label for="formFileLg" class="form-label">Seleccione el
-                    archivo CSV con el inventario de productos</label> <input
-                    class="form-control form-control-lg" id="archivo" type="file"
-                    accept=".csv"> <br> <br>
-                <button type="button" class="btn btn-success"
-                    onclick="subirArchivo()">Subir archivo</button>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <br> <br>
-        </form>
 
-        <div class="container">
-            <div class="row">
-
-                <button type="button" class="btn btn-success"
-                    onclick="load_productos()">
-                    <i class="fas fa-search "></i> Listar todos los Productos                
-                </button>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col align-self-center" id="productosinfo"></div>
-        </div>
-</div>
+<script>
+    $(function() {
+        $('').on('change', function () {
+            $(this).prev().text($(this)[0].files[0].name);
+        })
+    })
+</script>
 
 
 
-    <!-- footer -->
-    <%- include ('./templates/footer') %>
+            <!-- footer -->
+            <%- include ('./templates/footer') %>
