@@ -1,0 +1,110 @@
+/***** Resetear valores ************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/***** Variables de colores ************/
+html {
+    --color1: #c33764;
+    --color2: #702f6b;
+    --color3: #1d2671;
+}
+
+body{
+    font-family: 'Nunito', sans-serif;
+    color: var(--color3);
+}
+
+.containerA {
+    max-width: 330px;
+    border: solid 3px #c33764;
+    border-radius: 20px;
+}
+
+/* boton buscar archivo */
+.btn-buscar {
+    display: none;
+}
+
+form label {
+    background-color: var(--color1);
+    height: 2rem;
+    line-height: 2rem;
+    width: 120px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+form label:hover {
+    background-color: #9C2C50;
+}
+
+form label:active {
+    background-color: #CF5F83;
+}
+
+form input[type="submit"]{
+    background-color: var(--color1);
+    height: 2rem;
+    width: 120px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #9C2C50;
+}
+
+form input[type="submit"]:active {
+    background-color: #CF5F83;
+}
+
+/* *********Tabla******** */
+.table-responsive-sm {
+    display: grid;
+    justify-content: center;
+}
+
+table {
+    border-radius: 10px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgb(0 0 0 / 32%);
+    /* background-color: var(--bs-table-bg); */
+}
+
+th,
+td {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+th {
+    padding: 15px;
+    text-align: center;
+    color: white;
+    background-color: var(--color3);
+}
+
+td {
+    color: #131011;
+    padding: 10px 0 10px 10px;
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
