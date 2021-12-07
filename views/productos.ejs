@@ -15,7 +15,7 @@
                     <div class="d-flex justify-content-center mb-3">
                         <img src="/images/upload.svg" width="60px">
                     </div>
-                    <form action="/productos" method="post" class="mx-auto d-flex justify-content-between">
+                    <form action="/productos" method="post" enctype="multipart/form-data" class="mx-auto d-flex justify-content-between">
                         <input type="file" name="Productos" id="btn-buscar" class="btn-buscar">
                         <label for="btn-buscar">Buscar archivo</label>
                         <input type="submit" value="Procesar">
@@ -67,11 +67,11 @@
             </div>
 
             <script>
-                $(function () {
-                    $('').on('change', function () {
-                        $(this).prev().text($(this)[0].files[0].name);
-                    })
-                })
+                /*$(function() {
+                                                    $('').on('change', function() {
+                                                        $(this).prev().text($(this)[0].files[0].name);
+                                                    })
+                                                })*/
             </script>
 
 

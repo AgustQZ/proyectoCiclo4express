@@ -23,6 +23,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3444;
+var path = require('path');
 //para guardar datos en el navegador
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -31,7 +32,7 @@ const { Passport } = require('passport');
 
 
 //para leer los datos enviados del formulario
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 //usar paquetes para que express pueda usar sesiones
 app.use(cookieParser('mi mas grande secreto'));
 app.use(session({
@@ -77,7 +78,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch(e => console.log('Error de conexion', e));
 
 //llamar paginas estaticas
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.resolve(__dirname, 'public')));
 // llamar la carpeta donde va a iniciar el proyecto
 app.set('views', __dirname + '/views');
 // crear el motor de plantillas
@@ -90,7 +91,7 @@ app.use('/', require('./router/rutas'));
 app.use('/clientes', require('./router/clientes'));
 
 //modulo archivo de datos productos
-app.use('/productos',require('./router/productos'));
+app.use('/productos', require('./router/productos'));
 
 //modulo archivo de datos clientes
 app.use('/ventas', require('./router/ventas'));
