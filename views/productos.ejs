@@ -15,7 +15,7 @@
                     <div class="d-flex justify-content-center mb-3">
                         <img src="/images/upload.svg" width="60px">
                     </div>
-                    <form class="mx-auto d-flex justify-content-between">
+                    <form action="/productos" method="post" class="mx-auto d-flex justify-content-between">
                         <input type="file" name="Productos" id="btn-buscar" class="btn-buscar">
                         <label for="btn-buscar">Buscar archivo</label>
                         <input type="submit" value="Procesar">
@@ -28,38 +28,51 @@
                         <thead>
                             <tr>
                                 <th scope="col">Código</th>
-                                <th scope="col">Nombre</th>
+                                <th scope="col">Nombre Producto</th>
+                                <th scope="col">Nit Proveedor</th>
                                 <th scope="col">Precio Compra</th>
                                 <th scope="col">Iva</th>
                                 <th scope="col">Precio Venta</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                </td>
-                                <td>
-                                </td>
-                                <td>
-                                </td>
-                                <td>
-                                </td>
-                                <td>
-                                </td>
-                            </tr>
-
+                            <!-- recibe el array enviado desde la ruta clientes.js para mostrarlo en la siguiente tabla-->
+                            <% if (arrayProductos.length> 0) { %>
+                                <% arrayProductos.forEach(producto=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= producto.codigo_producto %>
+                                        </td>
+                                        <td>
+                                            <%= producto.nombre_producto %>
+                                        </td>
+                                        <td class="text-center">
+                                            <%= producto.nitproveedor %>
+                                        </td>
+                                        <td class="text-end pe-4">
+                                            <%= producto.precio_compra %>
+                                        </td>
+                                        <td class="text-center">
+                                            <%= producto.ivacompra %>
+                                        </td>
+                                        <td class="text-end pe-3">
+                                            <%= producto.precio_venta %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                        <% } %>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-<script>
-    $(function() {
-        $('').on('change', function () {
-            $(this).prev().text($(this)[0].files[0].name);
-        })
-    })
-</script>
+            <script>
+                $(function () {
+                    $('').on('change', function () {
+                        $(this).prev().text($(this)[0].files[0].name);
+                    })
+                })
+            </script>
 
 
 

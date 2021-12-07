@@ -27,6 +27,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- recibe el array enviado desde la ruta clientes.js para mostrarlo en la siguiente tabla-->
                             <% if (arrayClientes.length> 0) { %>
                                 <% arrayClientes.forEach(cliente=> { %>
 
@@ -47,8 +48,7 @@
                                             <%= cliente.correoElectronico %>
                                         </td>
                                         <td class="d-flex">
-                                            <a class="editar my-auto"
-                                                href="/clientes/<%= cliente.id%>">Editar</a>
+                                            <a class="editar my-auto" href="/clientes/<%= cliente.id%>">Editar</a>
                                             <a class="eliminar my-auto mx-3"
                                                 href="/clientes/delete/<%= cliente.id%>">Eliminar</a>
                                         </td>

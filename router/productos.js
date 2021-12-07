@@ -5,39 +5,19 @@ const router = express.Router();
 const Producto = require('../models/producto');
 
 // llamar al router por medio de mongoose
-router.get('/', async(req, res)=> {
+router.get('/', async (req, res) => {
     try {
+        //guardar en array lo que encuentre en la base datos
         const arrayProductosDB = await Producto.find();
+        //mostrar por consola el array al abrir la pagina ejs
         console.log(arrayProductosDB)
+        //enrutar a la pagina ejs
         res.render("productos", {
+            //coge el array que viene de la db y lo descarga en la variable que lee el ejs
             arrayProductos: arrayProductosDB
         })
     } catch (error) {
         console.log(error)
-    }
-})
-
-//crear un ingreso a Produtos
-router.get('/crear', (req, res)=>{
-    res.render('crear');
-})
-
-// transportar los datos de los inputs de crear
-router.post('/', async(req, res)=>{
-    const body = req.body
-    console.log(body)
-    try {
-        //primer metodo para enviar datos a la bd
-        const productoDB = new Producto(body)
-        await productoDB.save() 
-
-        //segund metodo para enviar dtos a la bd
-        //await Cliente.create(body)
-
-        //redireccionar luego de enviar los datos
-        res.redirect('productos')
-    } catch (error) {
-        console.log('error', error)
     }
 })
 

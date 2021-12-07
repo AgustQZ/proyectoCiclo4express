@@ -5,11 +5,15 @@ const router = express.Router();
 const Cliente = require('../models/cliente');
 
 // llamar al router por medio de mongoose
-router.get('/', async(req, res) => {
+router.get('/', async (req, res) => {
     try {
+        //guardar en array lo que encuentre en la base datos
         const arrayClientesDB = await Cliente.find();
+        //mostrar por consola el array al abrir la pagina ejs
         console.log(arrayClientesDB)
+        //enrutar a la pagina ejs
         res.render("clientes", {
+            //coge el array que viene de la db y lo descarga en la variable que lee el ejs
             arrayClientes: arrayClientesDB
         })
     } catch (error) {
@@ -22,27 +26,30 @@ router.get('/editar', (req, res) => {
     res.render('editarCliente');
 })
 
-//crear un ingreso a clientes
+//enrutar a crear cliente
 router.get('/crear', (req, res) => {
     res.render('crear');
 })
 
-// transportar los datos de los inputs de crear
-router.post('/', async(req, res) => {
+// transportar los datos de los inputs de crear.ejs
+router.post('/', async (req, res) => {
+    //const para pedir lo que tenga el body del ejs
     const body = req.body
     console.log(body)
     try {
-        //primer metodo para enviar datos a la bd
+        //primer metodo para enviar datos de los inputs a la bd
         const clienteDB = new Cliente(body)
+
         await clienteDB.save()
-            //redireccionar luego de enviar los datos
+        //redireccionar luego de enviar los datos
         res.redirect('clientes')
     } catch (error) {
         console.log('error', error)
     }
 })
+
 // buscar por id
-router.get('/:id', async(req, res) => {
+router.get('/:id', async (req, res) => {
     const id = req.params.id
     try {
         const clienteDB = await Cliente.findOne({
@@ -61,7 +68,7 @@ router.get('/:id', async(req, res) => {
     }
 })
 // editar
-router.put('/:id', async(req, res) => {
+router.put('/:id', async (req, res) => {
     const id = req.params.id
     const body = req.body
     try {
