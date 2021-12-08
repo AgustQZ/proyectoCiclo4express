@@ -20,7 +20,8 @@ body{
 
 .containerA {
     max-width: 330px;
-    border: solid 3px #c33764;
+    background-color: #D2D4E3;
+    /* border: solid 3px #c33764; */
     border-radius: 20px;
 }
 
@@ -29,11 +30,26 @@ body{
     display: none;
 }
 
-form label {
+.labelBlanco {
+    border:1px solid #CF5F83;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    height: 2rem;
+    border-radius: 20px;
+    padding-left: 5%;
+    text-align: center;
+    /* line-height: 2rem; */
+    /* para que no se desborde el texto largo */
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+.labelBuscar {
     background-color: var(--color1);
     height: 2rem;
     line-height: 2rem;
-    width: 120px;
+    width: 100%;
     border: none;
     border-radius: 20px;
     outline: none;
@@ -44,15 +60,16 @@ form label {
     cursor: pointer;
 }
 
-form label:hover {
+.labelBuscar:hover {
     background-color: #9C2C50;
 }
 
-form label:active {
+.labelBuscar:active {
     background-color: #CF5F83;
 }
 
 form input[type="submit"]{
+    margin-top: 0.5rem;
     background-color: var(--color1);
     height: 2rem;
     width: 120px;

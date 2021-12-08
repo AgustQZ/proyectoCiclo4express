@@ -8,13 +8,13 @@ const Venta = require('../models/venta');
 router.get('/', async (req, res) => {
         try {
                 //guardar en array lo que encuentre en la base datos
-                const arrayventasDB = await Venta.find();
+                const arrayVentasDB = await Venta.find();
                 //mostrar por consola el array al abrir la pagina ejs
-                console.log(arrayClientesDB)
+                console.log(arrayVentasDB)
                 //enrutar a la pagina ejs
                 res.render("ventas", {
                         //coge el array que viene de la db y lo descarga en la variable que lee el ejs
-                        arrayClientes: arrayClientesDB
+                        arrayVentas: arrayVentasDB
                 })
         } catch (error) {
                 console.log(error)
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
         console.log(body)
         try {
                 //primer metodo para enviar los datos y crear una venta en la bd
-                // nota esta Venta es la que se llamo en la linea 5
+                        // nota: esta Venta es la que se llamo en la linea 5
                 const ventaDB = new Venta(body)
                 await ventaDB.save()
                 //redireccionar despues de enviar los datos
