@@ -25,11 +25,9 @@ var temp;
 var uploads = multer({ storage: storage });
 
 router.post('/', uploads.single('Productos'), (req, res) => {
-    console.log("aqui")
     csv()
         .fromFile(req.file.path)
         .then((jsonObj) => {
-            console.log(jsonObj);
             for (var x = 0; x < jsonObj; x++) {
                 temp = parseInt(jsonObj[x].codigo_producto)
                 jsonObj[x].codigo_producto = temp;

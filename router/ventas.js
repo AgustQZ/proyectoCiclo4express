@@ -5,6 +5,7 @@ const router = express.Router();
 const Venta = require('../models/venta');
 
 const Cliente = require('../models/cliente');
+const Producto = require('../models/producto');
 
 // llamar al router por medio de mongoose y traer los datos de la bd
 router.get('/', async(req, res) => {
@@ -12,8 +13,7 @@ router.get('/', async(req, res) => {
         //guardar en array lo que encuentre en la base datos
         const arrayVentasDB = await Venta.find();
         //mostrar por consola el array al abrir la pagina ejs
-        console.log(arrayVentasDB)
-            //enrutar a la pagina ejs
+        //enrutar a la pagina ejs
         res.render("ventas", {
             //coge el array que viene de la db y lo descarga en la variable que lee el ejs
             arrayVentas: arrayVentasDB
@@ -41,6 +41,8 @@ router.post('/', async(req, res) => {
     }
 })
 
+
+//Búsqueda de cliente por cédula
 router.get('/cliente/:cedula', async(req, res) => {
     const cedula = req.params.cedula
     try {
@@ -53,11 +55,25 @@ router.get('/cliente/:cedula', async(req, res) => {
             error: false
 
         })
+    } catch (error) {
+        res.render('ventas', {
+            error: true
+        })
+    }
+})
 
-        // res.render('ventas', {
-        //     cliente: clienteDB,
-        //     error: false
-        // })
+router.get('/producto/:codigo_producto', async(req, res) => {
+    const codigo_producto = req.params.codigo_producto
+    try {
+        const productoDB = await Producto.findOne({
+            codigo_producto: codigo_producto
+        })
+        console.log(productoDB)
+        res.json({
+            producto: productoDB,
+            error: false
+
+        })
     } catch (error) {
         res.render('ventas', {
             error: true

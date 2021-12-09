@@ -44,15 +44,12 @@
                 const formularioEditar = document.querySelector('#formularioEditar')
                 formularioEditar.addEventListener('submit', async(e) => {
                     e.preventDefault()
-                    console.log('submit')
                     const cedula = formularioEditar.elements['cedula'].value
                     const nombre = formularioEditar.elements['nombre'].value
                     const direccion = document.querySelector('#direccion').value
-                    console.log(direccion, 'direccion');
                     const telefono = document.querySelector('#telefono').value
                     const correoElectronico = document.querySelector('#correoElectronico').value
                     const id = formularioEditar.dataset.id
-                    console.log(cedula, nombre, id)
                     try {
                         const data = await fetch(`/clientes/${id}`, {
                             method: 'put',
