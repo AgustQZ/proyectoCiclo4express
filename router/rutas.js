@@ -20,7 +20,7 @@ router.get('/sucursales', (req, res) => {
     res.render('sucursales');
 });
 
-//ruta reporte
+//ruta reportes
 router.get('/reportes', (req, res) => {
     res.render('reportes');
 });

@@ -17,6 +17,9 @@ html {
 
 body {
     font-family: 'Nunito', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 form {
@@ -45,7 +48,7 @@ form input:focus {
     outline: none;
 }
 
-form input[type="submit"] {
+form button {
     background: linear-gradient(to right, #c33764, #1d2671);
     border: none;
     border-radius: 20px;
@@ -53,4 +56,16 @@ form input[type="submit"] {
     outline: none;
     color: #fff;
     font-size: 1.2rem;
+}
+
+.ivaP {
+    display: none;
+}
+
+#guardarVenta {
+    margin-right: -10px;
+}
+
+#consec, #labelTotal1, #labelTotal2, #labelTotal3, #labelTotalV, #labelTotalIva, #labelTotalconIva {
+    pointer-events:none;
 }

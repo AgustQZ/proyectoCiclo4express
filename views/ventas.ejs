@@ -8,127 +8,131 @@
         <%- include ('./templates/navbar') %>
             <div class="container mt-5">
                 <form action="/ventas" method="post" class="mx-auto">
+                    <!-- --- CONSEC --- -->
                     <div class="d-flex flex-column align-items-end text-end">
-                        <label class="col-1">Consec</label>
-                        <input type="text" class="col-1">
+                        <label class="col-3 col-md-1">Consec</label>
+                        <input type="text" class="col-3 col-md-1" id="consec">
                     </div>
-
+                    <!-- --- CLIENTE --- -->
                     <div class="row">
-                        <div class="col-5 d-flex flex-column">
+                        <div class="col-6 col-md-3 d-flex flex-column">
                             <label>Cédula Cliente</label>
                             <input id="cedula" name="cedula_cliente" type="text">
-                            <button style="height: 20%;" id="buscar">Hola</button>
                         </div>
-                        <div class="col-7 d-flex flex-column">
+                        <div class="col-6 col-md-2 d-flex flex-column">
+                            <button id="buscar" class="mt-4">Buscar</button>
+                        </div>
+                        <div class="col-12 col-md-7 d-flex flex-column">
                             <label>Nombre Cliente</label>
                             <input id="inputNombre" type="text" disabled>
                         </div>
                     </div>
+                    <!-- --- PRODUCTO 1 --- -->
                     <div class="row mt-2">
-                        <div class="col-2 d-flex flex-column">
+                        <div class="col-6 col-md-3 d-flex flex-column">
                             <label>Código</label>
-                            <input id="inputProducto1" name="codigo_producto1" type="text">
+                            <input id="inputProducto1" name="codigo_producto1" type="text" placeholder="Código 1">
                         </div>
-                        <div class="col-2 d-flex flex-column">
+                        <div class="col-6 col-md-2 d-flex flex-column">
                             <label class="text-center">--></label>
                             <button id="productoUno" onclick="buscarProducto(1)" type="button">Buscar</button>
                         </div>
-                        <div class="col-4 d-flex flex-column">
+                        <div class="col-12 col-md-4 d-flex flex-column">
                             <label>Nombre Producto</label>
                             <input id="nombreProducto" type="text" disabled>
                         </div>
-                        <div class="col-1 d-flex flex-column">
+                        <div class="col-6 col-md-1 d-flex flex-column">
                             <label>Cant</label>
                             <input type="text" onchange="onChangeCant(1)" name="cantidad_producto1" id="labelCantidad1">
                         </div>
-                        <div class="col-1 d-flex flex-column">
-                            <label>Iva</label>
-                            <input type="text" name="ivaP1" id="ivaP1">
-                        </div>
-                        <div class="col-2 d-flex flex-column">
+                        <!-- iva oculto -->
+                        <input class="ivaP" type="text" name="ivaP1" id="ivaP1">
+                        <!-- ---------- -->
+                        <div class="col-6 col-md-2 d-flex flex-column">
                             <label>Total</label>
                             <input type="text" id="labelTotal1" name="valor_total">
                         </div>
                     </div>
+                    <!-- --- PRODUCTO 2 --- -->
                     <div class="row mt-1">
-                        <div class="col-2 d-flex flex-column">
-                            <input id="inputProducto2" name="codigo_producto2" type="text">
+                        <div class="col-6 col-md-3 d-flex flex-column">
+                            <input id="inputProducto2" name="codigo_producto2" type="text" placeholder="Código 2">
                         </div>
-                        <div class="col-2 d-flex flex-column">
+                        <div class="col-6 col-md-2 d-flex flex-column">
                             <button id="productoDos" onclick="buscarProducto(2)" type="button">Buscar</button>
-                            <!-- <input id="productoDos" type="submit" value="Buscar"> -->
                         </div>
-                        <div class="col-4 d-flex flex-column">
+                        <div class="col-12 col-md-4 d-flex flex-column">
                             <input id="nombreProductoDos" type="text" disabled>
                         </div>
-                        <div class="col-1 d-flex flex-column">
+                        <div class="col-6 col-md-1 d-flex flex-column">
                             <input type="text" onchange="onChangeCant(2)" name="cantidad_producto2" id="labelCantidad2">
                         </div>
-                        <div class="col-1 d-flex flex-column">
-                            <input type="text" name="ivaP2" id="ivaP2">
-                        </div>
-                        <div class="col-2 d-flex flex-column">
+                        <!-- iva oculto -->
+                        <input class="ivaP" type="text" name="ivaP2" id="ivaP2">
+                        <!-- ---------- -->
+                        <div class="col-6 col-md-2 d-flex flex-column">
                             <input type="text" id="labelTotal2" name="valor_total2">
                         </div>
                     </div>
+                    <!-- --- PRODUCTO 3 --- -->
                     <div class="row mt-1">
-                        <div class="col-2 d-flex flex-column">
-                            <input id="inputProducto3" name="codigo_producto3" type="text">
+                        <div class="col-6 col-md-3 d-flex flex-column">
+                            <input id="inputProducto3" name="codigo_producto3" type="text" placeholder="Código 3">
                         </div>
-                        <div class="col-2 d-flex flex-column">
+                        <div class="col-6 col-md-2 d-flex flex-column">
                             <button id="productoTres" onclick="buscarProducto(3)" type="button">Buscar</button>
-                            <!-- <input id="productoTres" type="submit" value="Buscar"> -->
                         </div>
-                        <div class="col-4 d-flex flex-column">
+                        <div class="col-12 col-md-4 d-flex flex-column">
                             <input id="nombreProductoTres" type="text" disabled>
                         </div>
-                        <div class="col-1 d-flex flex-column">
+                        <div class="col-6 col-md-1 d-flex flex-column">
                             <input type="text" onchange="onChangeCant(3)" name="cantidad_producto3" id="labelCantidad3">
                         </div>
-                        <div class="col-1 d-flex flex-column">
-                            <input type="text" name="ivaP3" id="ivaP3">
-                        </div>
-                        <div class="col-2 d-flex flex-column">
+                        <!-- iva oculto -->
+                        <input class="ivaP" type="text" name="ivaP3" id="ivaP3">
+                        <!-- ---------- -->
+                        <div class="col-6 col-md-2 d-flex flex-column">
                             <input type="text" id="labelTotal3" name="valor_total3">
                         </div>
                     </div>
-                    <div class="row d-flex justify-content-end">
-                        <div class="col-2 d-flex flex-column">
+
+                    <!-- --- TOTALES --- -->
+                    <div class="row d-flex justify-content-end mt-3">
+                        <div class="col-6 col-md-2 d-flex flex-column">
+                            <button type="button" id="guardar" onclick="confirmar()" class="mt-4">Confirmar</button>
+                        </div>
+                        <div class="col-6 col-md-2 d-flex flex-column">
                             <label>Total</label>
                             <input id="labelTotalV" name="valor_venta" type="text">
                         </div>
-                        <div class="col-2 d-flex flex-column">
+                        <div class="col-6 col-md-2 d-flex flex-column">
                             <label>Total Iva</label>
                             <input type="text" id="labelTotalIva" name="ivaventa">
                         </div>
-                        <div class="col-2 d-flex flex-column">
+                        <div class="col-6 col-md-2 d-flex flex-column">
                             <label>Total con Iva</label>
                             <input type="text" id="labelTotalconIva" name="total_venta">
                         </div>
-                        <div class="d-flex flex-column align-items-end">
-                            <input type="button" id="guardar" onclick="confirmar()" class="col-2 mt-4" value="Confirmar">
-                        </div>
-
                     </div>
                     <div class="d-flex flex-column align-items-end">
-                        <button type="submit" id="guardarVenta" class="col-2 mt-4">Guardar </button>
+                        <button type="submit" id="guardarVenta" class="col-6 col-md-2 mt-3 mb-3">Guardar </button>
                     </div>
                 </form>
             </div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
             <script>
-                $(document).ready(function() {
-                    $('#buscar').click(function(e) {
+                $(document).ready(function () {
+                    $('#buscar').click(function (e) {
                         e.preventDefault();
                         $.ajax({
                             type: 'GET',
                             dataType: "json",
                             url: 'http://localhost:3444/ventas/cliente/' + document.getElementById('cedula').value,
-                            success: function(cliente) {
+                            success: function (cliente) {
                                 var nombreCliente = cliente.cliente.nombre;
                                 document.getElementById("inputNombre").value = nombreCliente;
                             },
-                            error: function() {
+                            error: function () {
                                 alert('Error occured');
                             }
                         });
@@ -149,7 +153,7 @@
                         type: "GET",
                         dataType: "json",
                         url: 'http://localhost:3444/ventas/producto/' + codigo_producto,
-                        success: function(producto) {
+                        success: function (producto) {
                             console.log(producto, 'producto');
                             if (numero == 1) {
                                 $('#nombreProducto').val(producto.producto.nombre_producto);
@@ -181,7 +185,7 @@
                         type: "GET",
                         async: false,
                         url: 'http://localhost:3444/ventas/producto/' + codigo_producto,
-                        success: function(producto) {
+                        success: function (producto) {
                             ivaProducto = producto.producto.ivacompra;
                             if (numero == 1) {
                                 var cantidad = document.getElementById("labelCantidad1").value;
@@ -194,7 +198,7 @@
                                 $('#labelTotal3').val(producto.producto.precio_venta * cantidad);
                             }
                         },
-                        error: function() {
+                        error: function () {
                             alert('Error occured');
                         }
 
