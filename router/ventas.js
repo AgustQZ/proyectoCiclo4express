@@ -22,39 +22,36 @@ router.get('/', async(req, res) => {
     }
 })
 
-
 // transportar los datos de los inputs de crear
 router.post('/', async(req, res) => {
     const body = req.body
-    console.log(body)
     let venta = {
         cedula_cliente: body.cedula_cliente,
         detalle_venta: [{
                 cantidad_producto: body.cantidad_producto1,
                 codigo_producto: body.codigo_producto1,
-                valor_total: body.valor_total,
-                valor_venta: body.valor_venta,
-                valoriva: body.valoriva,
+                valor_total: Number(body.valor_total),
+                valoriva: (Number(body.ivaP1) / 100) * (Number(body.valor_total)),
+                valor_venta: Number(body.valor_total) + ((Number(body.ivaP1) / 100) * (Number(body.valor_total)))
             }, {
                 codigo_producto: body.codigo_producto2,
                 codigo_producto: body.codigo_producto2,
-                valor_total: body.valor_total2,
-                valor_venta: body.valor_venta,
-                valoriva: body.valoriva,
+                valor_total: Number(body.valor_total2),
+                valoriva: (Number(body.ivaP2) / 100) * (Number(body.valor_total2)),
+                valor_venta: Number(body.valor_total2) + ((Number(body.ivaP2) / 100) * (Number(body.valor_total2))),
             },
             {
                 codigo_producto: body.codigo_producto3,
                 codigo_producto: body.codigo_producto3,
-                valor_total: body.valor_total3,
-                valor_venta: body.valor_venta,
-                valoriva: body.valoriva,
+                valor_total: Number(body.valor_total3),
+                valoriva: (Number(body.ivaP3) / 100) * (Number(body.valor_total3)),
+                valor_venta: Number(body.valor_total3) + ((Number(body.ivaP3) / 100) * (Number(body.valor_total3))),
             }
         ],
-        valor_venta: body.valor_venta,
-        ivaventa: body.ivaventa,
-        total_venta: body.total_venta,
+        valor_venta: Number(body.valor_venta),
+        ivaventa: Number(body.ivaventa),
+        total_venta: Number(body.total_venta),
     }
-    console.log(venta)
     try {
         //primer metodo para enviar los datos y crear una venta en la bd
         // nota: esta Venta es la que se llamo en la linea 5

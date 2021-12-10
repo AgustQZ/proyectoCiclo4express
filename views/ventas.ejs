@@ -150,12 +150,16 @@
                         dataType: "json",
                         url: 'http://localhost:3444/ventas/producto/' + codigo_producto,
                         success: function(producto) {
+                            console.log(producto, 'producto');
                             if (numero == 1) {
                                 $('#nombreProducto').val(producto.producto.nombre_producto);
+                                $('#ivaP1').val(producto.producto.ivacompra);
                             } else if (numero == 2) {
                                 $('#nombreProductoDos').val(producto.producto.nombre_producto);
+                                $('#ivaP2').val(producto.producto.ivacompra);
                             } else if (numero == 3) {
                                 $('#nombreProductoTres').val(producto.producto.nombre_producto);
+                                $('#ivaP3').val(producto.producto.ivacompra);
                             }
                         }
                     });
