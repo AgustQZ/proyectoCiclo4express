@@ -27,11 +27,31 @@ router.get('/', async(req, res) => {
 router.post('/', async(req, res) => {
     const body = req.body
     console.log(body)
+    let venta = {
+        cedula_cliente: body.cedula_cliente,
+        detalle_venta: [{
+            cantidad_producto: body.cantidad_producto1,
+            codigo_producto: body.codigo_producto1,
+            valor_total: body.valor_total,
+            valor_venta: body.valor_venta,
+            valoriva: body.valoriva,
+        }, {
+            codigo_producto: body.codigo_producto2,
+            codigo_producto: body.codigo_producto2,
+            valor_total: body.valor_total,
+            valor_venta: body.valor_venta,
+            valoriva: body.valoriva,
+        }],
+        valor_venta: body.valor_venta,
+        ivaventa: body.ivaventa,
+        total_venta: body.total_venta,
+    }
+    console.log(venta)
     try {
         //primer metodo para enviar los datos y crear una venta en la bd
         // nota: esta Venta es la que se llamo en la linea 5
 
-        const ventaDB = new Venta(body)
+        const ventaDB = new Venta(venta)
         await ventaDB.save()
             //redireccionar despues de enviar los datos
         res.redirect('ventas')

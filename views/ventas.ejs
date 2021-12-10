@@ -27,7 +27,7 @@
                     <div class="row mt-2">
                         <div class="col-2 d-flex flex-column">
                             <label>Código</label>
-                            <input id="inputProducto1" type="text">
+                            <input id="inputProducto1" name="codigo_producto1" type="text">
                         </div>
                         <div class="col-2 d-flex flex-column">
                             <label class="text-center">--></label>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="col-1 d-flex flex-column">
                             <label>Cant</label>
-                            <input type="text" onchange="onChangeCant(1)" id="labelCantidad1">
+                            <input type="text" onchange="onChangeCant(1)" name="cantidad_producto1" id="labelCantidad1">
                         </div>
                         <div class="col-2 d-flex flex-column">
                             <label>Total</label>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="row mt-1">
                         <div class="col-2 d-flex flex-column">
-                            <input id="inputProducto2" type="text">
+                            <input id="inputProducto2" name="codigo_producto2" type="text">
                         </div>
                         <div class="col-2 d-flex flex-column">
                             <button id="productoDos" onclick="buscarProducto(2)" type="button">Buscar</button>
@@ -58,7 +58,7 @@
                             <input id="nombreProductoDos" type="text" disabled>
                         </div>
                         <div class="col-1 d-flex flex-column">
-                            <input type="text" onchange="onChangeCant(2)" id="labelCantidad2">
+                            <input type="text" onchange="onChangeCant(2)" name="cantidad_producto2" id="labelCantidad2">
                         </div>
                         <div class="col-2 d-flex flex-column">
                             <input type="text" id="labelTotal2" disabled>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="row mt-1">
                         <div class="col-2 d-flex flex-column">
-                            <input id="inputProducto3" type="text">
+                            <input id="inputProducto3" name="codigo_producto3" type="text">
                         </div>
                         <div class="col-2 d-flex flex-column">
                             <button id="productoTres" onclick="buscarProducto(3)" type="button">Buscar</button>
@@ -76,7 +76,7 @@
                             <input id="nombreProductoTres" type="text" disabled>
                         </div>
                         <div class="col-1 d-flex flex-column">
-                            <input type="text" onchange="onChangeCant(3)" id="labelCantidad3">
+                            <input type="text" onchange="onChangeCant(3)" name="cantidad_producto3" id="labelCantidad3">
                         </div>
                         <div class="col-2 d-flex flex-column">
                             <input type="text" id="labelTotal3" disabled>
@@ -85,15 +85,15 @@
                     <div class="row d-flex justify-content-end">
                         <div class="col-2 d-flex flex-column">
                             <label>Total</label>
-                            <input id="labelTotalV" name="valor_venta" type="text" disabled>
+                            <input id="labelTotalV" name="valor_venta" type="text">
                         </div>
                         <div class="col-2 d-flex flex-column">
                             <label>Total Iva</label>
-                            <input type="text" id="labelTotalIva" name="ivaventa" disabled>
+                            <input type="text" id="labelTotalIva" name="ivaventa">
                         </div>
                         <div class="col-2 d-flex flex-column">
                             <label>Total con Iva</label>
-                            <input type="text" id="labelTotalconIva" name="total_venta" disabled>
+                            <input type="text" id="labelTotalconIva" name="total_venta">
                         </div>
                         <div class="d-flex flex-column align-items-end">
                             <input type="button" id="guardar" onclick="confirmar()" class="col-2 mt-4" value="Confirmar">

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const ventaSchema = new Schema({
     cedula_cliente: String,
     //codigo_venta: Number,
-    //detalle_venta: Number,
+    detalle_venta: Array,
     ivaventa: Number,
     total_venta: Number,
     valor_venta: Number
