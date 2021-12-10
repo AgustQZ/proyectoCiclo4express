@@ -3,7 +3,6 @@ const router = express.Router();
 
 // solicitar la venta en el modelo
 const Venta = require('../models/venta');
-
 const Cliente = require('../models/cliente');
 const Producto = require('../models/producto');
 

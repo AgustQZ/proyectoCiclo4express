@@ -9,25 +9,25 @@
             <div class="container mt-5">
                 <form action="/ventas" method="post" class="mx-auto">
                     <div class="d-flex flex-column align-items-end text-end">
-                        <label for="" class="col-1">Consec</label>
+                        <label class="col-1">Consec</label>
                         <input type="text" class="col-1">
                     </div>
 
                     <div class="row">
                         <div class="col-5 d-flex flex-column">
                             <label>Cédula Cliente</label>
-                            <input id="cedula" name="cedula" type="text">
+                            <input id="cedula" name="cedula_cliente" type="text">
                             <button style="height: 20%;" id="buscar">Hola</button>
                         </div>
                         <div class="col-7 d-flex flex-column">
-                            <label for="">Nombre Cliente</label>
-                            <input id="inputNombre" type="text" name="nombreCliente" disabled>
+                            <label>Nombre Cliente</label>
+                            <input id="inputNombre" type="text" disabled>
                         </div>
                     </div>
                     <div class="row mt-2">
                         <div class="col-2 d-flex flex-column">
-                            <label for="" class="">Código</label>
-                            <input id="inputProducto1" type="text" class="">
+                            <label>Código</label>
+                            <input id="inputProducto1" type="text">
                         </div>
                         <div class="col-2 d-flex flex-column">
                             <label class="text-center">--></label>
@@ -39,29 +39,29 @@
                         </div>
                         <div class="col-1 d-flex flex-column">
                             <label>Cant</label>
-                            <input type="text" onchange="onChangeCant(1)" name="cantidad_uno" id="labelCantidad1">
+                            <input type="text" onchange="onChangeCant(1)" id="labelCantidad1">
                         </div>
                         <div class="col-2 d-flex flex-column">
-                            <label for="" class="">Total</label>
-                            <input type="text" id="labelTotal1" name="total_uno" disabled>
+                            <label>Total</label>
+                            <input type="text" id="labelTotal1" disabled>
                         </div>
                     </div>
                     <div class="row mt-1">
                         <div class="col-2 d-flex flex-column">
-                            <input id="inputProducto2" type="text" class="">
+                            <input id="inputProducto2" type="text">
                         </div>
                         <div class="col-2 d-flex flex-column">
                             <button id="productoDos" onclick="buscarProducto(2)" type="button">Buscar</button>
-                            <!-- <input id="productoDos" type="submit" value="Buscar" class=""> -->
+                            <!-- <input id="productoDos" type="submit" value="Buscar"> -->
                         </div>
                         <div class="col-5 d-flex flex-column">
                             <input id="nombreProductoDos" type="text" disabled>
                         </div>
                         <div class="col-1 d-flex flex-column">
-                            <input type="text" onchange="onChangeCant(2)" id="labelCantidad2" name="cantidad_dos">
+                            <input type="text" onchange="onChangeCant(2)" id="labelCantidad2">
                         </div>
                         <div class="col-2 d-flex flex-column">
-                            <input type="text" id="labelTotal2" name="total_dos" disabled>
+                            <input type="text" id="labelTotal2" disabled>
                         </div>
                     </div>
                     <div class="row mt-1">
@@ -70,34 +70,38 @@
                         </div>
                         <div class="col-2 d-flex flex-column">
                             <button id="productoTres" onclick="buscarProducto(3)" type="button">Buscar</button>
-                            <!-- <input id="productoTres" type="submit" value="Buscar" class=""> -->
+                            <!-- <input id="productoTres" type="submit" value="Buscar"> -->
                         </div>
                         <div class="col-5 d-flex flex-column">
                             <input id="nombreProductoTres" type="text" disabled>
                         </div>
                         <div class="col-1 d-flex flex-column">
-                            <input type="text" onchange="onChangeCant(3)" id="labelCantidad3" name="cantidad_tres">
+                            <input type="text" onchange="onChangeCant(3)" id="labelCantidad3">
                         </div>
                         <div class="col-2 d-flex flex-column">
-                            <input type="text" id="labelTotal3" name="total_tres" disabled>
+                            <input type="text" id="labelTotal3" disabled>
                         </div>
                     </div>
                     <div class="row d-flex justify-content-end">
                         <div class="col-2 d-flex flex-column">
-                            <label for="" class="">Total</label>
-                            <input type="text" id="labelTotalV" name="total_venta" disabled>
+                            <label>Total</label>
+                            <input id="labelTotalV" name="valor_venta" type="text" disabled>
                         </div>
                         <div class="col-2 d-flex flex-column">
-                            <label for="" class="">Total Iva</label>
-                            <input type="text" id="labelTotalIva" name="total_iva" disabled>
+                            <label>Total Iva</label>
+                            <input type="text" id="labelTotalIva" name="ivaventa" disabled>
                         </div>
                         <div class="col-2 d-flex flex-column">
-                            <label for="" class="">Total con Iva</label>
-                            <input type="text" id="labelTotalconIva" name="total_coniva" disabled>
+                            <label>Total con Iva</label>
+                            <input type="text" id="labelTotalconIva" name="total_venta" disabled>
                         </div>
                         <div class="d-flex flex-column align-items-end">
-                            <input type="button" id="guardar" onclick="confirmar()" value="Confirmar" class="col-2 mt-4">
+                            <input type="button" id="guardar" onclick="confirmar()" class="col-2 mt-4" value="Confirmar">
                         </div>
+
+                    </div>
+                    <div class="d-flex flex-column align-items-end">
+                        <button type="submit" id="guardarVenta" class="col-2 mt-4">Guardar </button>
                     </div>
                 </form>
             </div>
@@ -143,9 +147,7 @@
                             } else if (numero == 3) {
                                 $('#nombreProductoTres').val(producto.producto.nombre_producto);
                             }
-
                         }
-
                     });
 
                 }
