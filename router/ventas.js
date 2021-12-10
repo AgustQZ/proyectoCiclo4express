@@ -30,18 +30,26 @@ router.post('/', async(req, res) => {
     let venta = {
         cedula_cliente: body.cedula_cliente,
         detalle_venta: [{
-            cantidad_producto: body.cantidad_producto1,
-            codigo_producto: body.codigo_producto1,
-            valor_total: body.valor_total,
-            valor_venta: body.valor_venta,
-            valoriva: body.valoriva,
-        }, {
-            codigo_producto: body.codigo_producto2,
-            codigo_producto: body.codigo_producto2,
-            valor_total: body.valor_total,
-            valor_venta: body.valor_venta,
-            valoriva: body.valoriva,
-        }],
+                cantidad_producto: body.cantidad_producto1,
+                codigo_producto: body.codigo_producto1,
+                valor_total: body.valor_total,
+                valor_venta: body.valor_venta,
+                valoriva: body.valoriva,
+            }, {
+                codigo_producto: body.codigo_producto2,
+                codigo_producto: body.codigo_producto2,
+                valor_total: body.valor_total2,
+                valor_venta: body.valor_venta,
+                valoriva: body.valoriva,
+            },
+            {
+                codigo_producto: body.codigo_producto3,
+                codigo_producto: body.codigo_producto3,
+                valor_total: body.valor_total3,
+                valor_venta: body.valor_venta,
+                valoriva: body.valoriva,
+            }
+        ],
         valor_venta: body.valor_venta,
         ivaventa: body.ivaventa,
         total_venta: body.total_venta,
