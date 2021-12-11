@@ -34,6 +34,7 @@ router.post('/', async(req, res) => {
                 valoriva: (Number(body.ivaP1) / 100) * (Number(body.valor_total)),
                 valor_venta: Number(body.valor_total) + ((Number(body.ivaP1) / 100) * (Number(body.valor_total)))
             }, {
+                cantidad_producto: body.cantidad_producto2,
                 codigo_producto: body.codigo_producto2,
                 codigo_producto: body.codigo_producto2,
                 valor_total: Number(body.valor_total2),
@@ -41,6 +42,7 @@ router.post('/', async(req, res) => {
                 valor_venta: Number(body.valor_total2) + ((Number(body.ivaP2) / 100) * (Number(body.valor_total2))),
             },
             {
+                cantidad_producto: body.cantidad_producto3,
                 codigo_producto: body.codigo_producto3,
                 codigo_producto: body.codigo_producto3,
                 valor_total: Number(body.valor_total3),

@@ -93,6 +93,9 @@ app.use('/clientes', require('./router/clientes'));
 //modulo archivo de datos productos
 app.use('/productos', require('./router/productos'));
 
+//modulo archivo de datos reportes
+app.use('/reportes', require('./router/reportes'));
+
 //modulo archivo de datos clientes
 app.use('/ventas', require('./router/ventas'));
 // llamar a error 404 ejs
