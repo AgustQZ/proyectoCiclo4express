@@ -1,0 +1,75 @@
+<%- include ('./templates/head1', {titulo: 'Productos' }); %>
+
+    <!-- css esta pagina -->
+    <link rel="stylesheet" href="css/estilosProducto.css">
+    </head>
+
+    <body>
+        <!-- navbar -->
+        <%- include ('./templates/navbar') %>
+
+            <div class="container mt-5">
+                <h2 class="text-center mb-4">Seleccione el archivo CSV con los productos</h2>
+
+                <div class="containerA p-4 mx-auto mb-5">
+                    <div class="d-flex justify-content-center mb-2">
+                        <img src="/images/upload.svg" width="60px">
+                    </div>
+                    <form action="/productos" method="post" enctype="multipart/form-data"
+                    class="mx-auto d-flex flex-column">
+                    <label for="btn-buscar" class="labelBuscar">Buscar archivo</label>
+                        <input type="file" name="Productos" id="btn-buscar" class="btn-buscar inputOculto">
+                        <label for="" class="labelBlanco"></label>
+                        <input type="submit" value="Procesar" class="inputProcesar mx-auto">
+                    </form>
+                </div>
+
+                <!-- tabla -->
+                <div class="table-responsive-sm mb-4">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Código</th>
+                                <th scope="col">Nombre Producto</th>
+                                <th scope="col">Nit Proveedor</th>
+                                <th scope="col">Precio Compra</th>
+                                <th scope="col">Iva</th>
+                                <th scope="col">Precio Venta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- recibe el array enviado desde la ruta clientes.js para mostrarlo en la siguiente tabla-->
+                            <% if (arrayProductos.length> 0) { %>
+                                <% arrayProductos.forEach(producto=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= producto.codigo_producto %>
+                                        </td>
+                                        <td>
+                                            <%= producto.nombre_producto %>
+                                        </td>
+                                        <td class="text-center">
+                                            <%= producto.nitproveedor %>
+                                        </td>
+                                        <td class="text-end pe-4">
+                                            <%= producto.precio_compra %>
+                                        </td>
+                                        <td class="text-center">
+                                            <%= producto.ivacompra %>
+                                        </td>
+                                        <td class="text-end pe-3">
+                                            <%= producto.precio_venta %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <script src="js/jquery-3.6.0.min.js"></script>
+            <script src="js/scripts.js"></script>
+
+
+            <!-- footer -->
+            <%- include ('./templates/footer') %>

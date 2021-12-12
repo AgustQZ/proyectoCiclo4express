@@ -1,16 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;1,200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sarpanch:wght@900&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/***** Variables de colores ************/
+
+html {
+    --color1: #c33764;
+    --color2: #702f6b;
+    --color3: #1d2671;
+}
+
 body {
     background: url(../images/fondoLogin2.png);
     background-size: cover;
     background-position: center;
-    font-family: Nunito, sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .imglogo {

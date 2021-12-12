@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/***** Variables de colores ************/
+
+html {
+    --color1: #c33764;
+    --color2: #702f6b;
+    --color3: #1d2671;
+}
+
+.navbar{
+    background-color: var(--color1);
+}
+
+#marca{
+    font-family: 'Sarpanch', sans-serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.navbar a{
+    font-size: 1.3rem;
+}

@@ -1,0 +1,127 @@
+/***** Resetear valores ************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/***** Variables de colores ************/
+html {
+    --color1: #c33764;
+    --color2: #702f6b;
+    --color3: #1d2671;
+}
+
+body{
+    font-family: 'Nunito', sans-serif;
+    color: var(--color3);
+}
+
+.containerA {
+    max-width: 330px;
+    background-color: #D2D4E3;
+    /* border: solid 3px #c33764; */
+    border-radius: 20px;
+}
+
+/* boton buscar archivo */
+.btn-buscar {
+    display: none;
+}
+
+.labelBlanco {
+    border:1px solid #CF5F83;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    height: 2rem;
+    border-radius: 20px;
+    padding-left: 5%;
+    text-align: center;
+    /* line-height: 2rem; */
+    /* para que no se desborde el texto largo */
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+.labelBuscar {
+    background-color: var(--color1);
+    height: 2rem;
+    line-height: 2rem;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.labelBuscar:hover {
+    background-color: #9C2C50;
+}
+
+.labelBuscar:active {
+    background-color: #CF5F83;
+}
+
+form input[type="submit"]{
+    margin-top: 0.5rem;
+    background-color: var(--color1);
+    height: 2rem;
+    width: 120px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #9C2C50;
+}
+
+form input[type="submit"]:active {
+    background-color: #CF5F83;
+}
+
+/* *********Tabla******** */
+.table-responsive-sm {
+    display: grid;
+    justify-content: center;
+}
+
+table {
+    border-radius: 10px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgb(0 0 0 / 32%);
+    /* background-color: var(--bs-table-bg); */
+}
+
+th,
+td {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+th {
+    padding: 15px;
+    text-align: center;
+    color: white;
+    background-color: var(--color3);
+}
+
+td {
+    color: #131011;
+    padding: 10px 0 10px 10px;
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}

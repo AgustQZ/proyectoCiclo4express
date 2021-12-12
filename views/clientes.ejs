@@ -1,0 +1,63 @@
+<%- include ('./templates/head1', {titulo: 'Clientes' }); %>
+
+    <!-- css esta pagina -->
+    <link rel="stylesheet" href="css/cliente.css">
+    </head>
+
+    <body>
+        <!-- navbar -->
+        <%- include ('./templates/navbar') %>
+
+            <h1 class="my-5">Listado de clientes</h1>
+            <div class="container">
+                <div>
+                    <a class="btn btn-color btn-block mb-3" href="/clientes/crear">
+                        Crear Cliente</a>
+                </div>
+                <div class="table-responsive-sm">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Cédula</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Dirección</th>
+                                <th scope="col">Teléfono</th>
+                                <th scope="col">Correo electrónico</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- recibe el array enviado desde la ruta clientes.js para mostrarlo en la siguiente tabla-->
+                            <% if (arrayClientes.length> 0) { %>
+                                <% arrayClientes.forEach(cliente=> { %>
+
+                                    <tr>
+                                        <td>
+                                            <%= cliente.cedula %>
+                                        </td>
+                                        <td>
+                                            <%= cliente.nombre %>
+                                        </td>
+                                        <td>
+                                            <%= cliente.direccion%>
+                                        </td>
+                                        <td>
+                                            <%= cliente.telefono %>
+                                        </td>
+                                        <td>
+                                            <%= cliente.correoElectronico %>
+                                        </td>
+                                        <td class="d-flex">
+                                            <a class="editar my-auto" href="/clientes/<%= cliente.id%>">Editar</a>
+                                            <a class="eliminar my-auto mx-3" href="/clientes/delete/<%= cliente.id%>">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- footer -->
+            <%- include ('./templates/footer') %>
